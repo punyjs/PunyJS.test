@@ -3,7 +3,7 @@
 * @factory
 */
 function _IsOfType(
-
+    utils_getType
 ) {
 
     return IsOfType;
@@ -16,6 +16,7 @@ function _IsOfType(
     * @returns {boolean}
     */
     function IsOfType(value, type) {
-        return getType(value) === type;
+        var valueType = utils_getType(value);
+        return [valueType === type, [valueType, type]];
     }
 }
