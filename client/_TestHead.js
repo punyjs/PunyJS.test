@@ -62,8 +62,9 @@ function _TestHead(
         }
         var keys;
         if (propName === "value") {
-            //set the passed boolean
+            //set the passed boolean to start
             assertion.passed = true;
+            assertion.valueSet = true;
             //return a callback that will be called with the value
             return setValue.bind(
                 null
@@ -80,7 +81,8 @@ function _TestHead(
             return assertionProxy;
         }
         else {
-            if (!assertion.value) {
+            if (!assertion.valueSet) {
+                assertion.passed = false;
                 assertion.error = new Error(
                     `${errors.test.client.missing_assertion_value} (${assertion.title})`
                 );
@@ -110,6 +112,7 @@ function _TestHead(
             }
         }
         //made it here invalid property
+        assertion.passed = false;
         assertion.error = new Error(
             `${errors.test.client.invalid_testhead_property} (${propName})`
         );
@@ -148,6 +151,7 @@ function _TestHead(
 
             if (is_array(newValue)) {
                 if(is_error(newValue[1])) {
+                    assertion.passed = false;
                     assertion.error = newValue[1];
                 }
                 else {
@@ -159,6 +163,7 @@ function _TestHead(
             }
         }
         catch(ex) {
+            assertion.passed = false;
             assertion.error = ex;
         }
         //return the proxy for chaining
@@ -194,6 +199,7 @@ function _TestHead(
             );
         }
         catch(ex) {
+            assertion.passed = false;
             assertion.error = ex;
         }
         //return the proxy for chaining
