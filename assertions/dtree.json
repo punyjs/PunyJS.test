@@ -11,6 +11,7 @@
     , "utils": [{
         "regEx": [":PunyJS.core.regexp._RegExp",[]]
         , "regExGetMatches": [".regEx", "getMatches"]
+        , "getType": [":PunyJS.core.utils.GetType"]
     }]
     , "test": [{
         "assertions": [{
