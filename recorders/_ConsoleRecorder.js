@@ -149,7 +149,8 @@ function _ConsoleRecorder(
     */
     function processAssertion(config, assertion) {
         if (config.verbosity > 4 || assertion.passed === false) {
-            console.log(assertion);
+            console.log("Title: ", assertion.title);
+            console.log("Results: ", assertion.results);
         }
     }
     /**
