@@ -376,6 +376,15 @@ function _RunTest(
             .assertions
             .forEach(
                 function forEachAssertion(assertion) {
+                    //convert the error to a string for serialization
+                    if (is_error(assertion.error)) {
+                        if (!!assertion.error.stack) {
+                            assertion.error = assertion.error.stack;
+                        }
+                        else {
+                            assertion.error = `${assertion.error}`;
+                        }
+                    }
                     testToken.passed = testToken.passed
                         && assertion.passed
                         || false
