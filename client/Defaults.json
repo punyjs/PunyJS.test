@@ -1,0 +1,15 @@
+{
+    "test": {
+        "client": {
+            "waitTimeout": 250
+            , "hideGlobals": [
+                "global"
+                , "window"
+                , "document"
+                , "process"
+                , "module"
+            ]
+            , "noIndex": 9999
+        }
+    }
+}

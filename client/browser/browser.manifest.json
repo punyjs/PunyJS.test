@@ -1,0 +1,50 @@
+{
+    "config": {
+        "engine": "browser"
+        , "+output": "/public"
+    }
+    , "appFileName": "browser.app.js"
+    , "appDtreeFileName": "browser.dtree.js"
+
+    , "entries": [
+        {
+            "type": "bootstrap"
+            , "bootstrapType": "${appType}"
+            , "config": {
+                "fileName": "public/bootstrap.js"
+            }
+            , "appContainerPath": "./${appFileName}"
+            , "appDtreePath": "./${appDtreeFileName}"
+        }
+        , {
+            "type": "bootstrap"
+            , "bootstrapType": "ioc.browser"
+            , "config": {
+                "fileName": "public/index.html"
+            }
+            , "appBootstrapPath": "./bootstrap.js"
+        }
+        , {
+            "type": "ioc.monolith"
+            , "base": [
+                "{PunyJS.test.client}/base.dtree.json"
+                , "{PunyJS.test.assertions}/dtree.json"
+                , "{PunyJS.test.conversions}/dtree.json"
+                , "{PunyJS.test.mocks}/dtree.json"
+                , "{PunyJS.core.net.http}/dtree.json"
+                , "{PunyJS.core.net.http}/browser.dtree.json"
+                , "{PunyJS.core.encoding}/dtree.json"
+                , "{PunyJS.core.encoding}/browser.dtree.json"
+                , "{PunyJS.core.security}/dtree.json"
+                , "{PunyJS.core.security}/browser.dtree.json"
+            ]
+            , "dtree": "{PunyJS.test.client}/browser/browser.dtree.json"
+            , "config": {
+                "dtreeFileName": "${appDtreeFileName}"
+                , "fileName": "${appFileName}"
+            }
+        }
+        , "{PunyJS.ioc}/manifests/browser.manifest.json"
+        , "{PunyJS.cmdArgs}/base.manifest.json"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "test": {
+        "client": {
+            "assertions": {
+                "not_callback": "The value must be a callback to use the conversion"
+                , "callback_not_enough": "The callback was not called enough times"
+                , "callback_not_enough_args": "The callback was not call with enough arguments"
+                , "value_mustbe_array": "The value must be an array for this assertion"
+                , "value_mustbe_object": "The value must be an object for this assertion"
+            }
+        }
+    }
+}

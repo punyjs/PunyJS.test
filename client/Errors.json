@@ -1,0 +1,16 @@
+{
+    "test": {
+        "client": {
+            "invalid_message": "[Invalid Message] The message should conform to the test message format; `${instruction}:${data}`"
+            , "invalid_instruction": "[Invalid Instruction] The message instruction is invalid."
+            , "dependency_exits": "[Dependency Exists] The a test dependency with this ID already exists."
+            , "name_exists": "[Name Exists] The name already exists in the dependency collection."
+            , "missing_dependency": "[Missing Dependency] Unable to locate the dependency"
+            , "import_path_not_found": "[Imported Path Not Found] The import or require path does not exist."
+            , "invalid_aaa_function": "[Invalid AAA Function] The arrange, act, and assert values must be a function."
+            , "assertion_value_set": "[Assertion Value Set] The assertion value has already been set."
+            , "invalid_testhead_property": "[Invalid Testhead Property] The testhead property accessed does not exist"
+            , "missing_assertion_value": "[Missing Assertion Value] The assertion value must be set before conversions or assertions are used."
+        }
+    }
+}

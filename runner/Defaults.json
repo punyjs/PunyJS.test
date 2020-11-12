@@ -1,0 +1,14 @@
+{
+    "test": {
+        "runner": {
+            "port": "3010"
+            , "loopInterval": 250
+            , "shutdownWaitMs": 30000
+            , "clientMessageTimeout": 120000
+            , "testFilename": "test.json"
+            , "recorder": "console"
+            , "verbosity": 0
+            , "totalIterations": 1
+        }
+    }
+}

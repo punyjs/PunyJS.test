@@ -1,0 +1,65 @@
+{
+    "promise": ["+Promise"]
+    , "proxy": ["+Proxy"]
+    , "setTimeout": ["+setTimeout"]
+    , "timing": [{
+        "gregorianReform": ["+Date.UTC('1582', '9', '15', '0', '0', '0', '0')"]
+        , "timestamper": [":PunyJS.core.timing._Timestamper",[]]
+    }]
+    , "defaults": [
+        ":PunyJS.test.client.Defaults"
+        , ":PunyJS.core.data.Defaults"
+        , {"conflictResolution": "error"}
+    ]
+    , "errors": [
+        ":PunyJS.test.client.Errors"
+        , ":PunyJS.core.data.Errors"
+        , {"conflictResolution": "error"}
+    ]
+    , "info": [
+        ":PunyJS.test.client.Info"
+        , {"conflictResolution": "error"}
+    ]
+    , "constants": [
+        ":PunyJS.test.runner.Constants"
+        , {"conflictResolution": "error"}
+    ]
+    , "url": ["+URL"]
+    , "security": [{
+        "crypto": [":PunyJS.core.security._Crypto", []]
+        , "fillRandomBytes": [".security.crypto",".fillRandomBytes"]
+        , "fillRandomBytesSync": [".security.crypto",".fillRandomBytesSync"]
+    }]
+    , "utils": [{
+        "copy": [":PunyJS.core.object.Copy"]
+        , "apply": [":PunyJS.core.object.Apply"]
+        , "applyIf": [":PunyJS.core.object.ApplyIf"]
+        , "guid": [":PunyJS.core.data._Uuid",[]]
+        , "reference": [":PunyJS.core.object.Reference"]
+        , "ensure": [":PunyJS.core.object.Ensure"]
+        , "function": ["+Function"]
+        , "asyncFunction": ["+Object.getPrototypeOf(async function(){}).constructor"]
+    }]
+    , "is": [{
+        "error": [":PunyJS.core.is.Error"]
+        , "nill": [":PunyJS.core.is.Nill"]
+        , "array": [":PunyJS.core.is.Array"]
+        , "string": [":PunyJS.core.is.String"]
+        , "object": [":PunyJS.core.is.Object"]
+        , "regexp": [":PunyJS.core.is.RegExp"]
+        , "empty": [":PunyJS.core.is.Empty"]
+        , "numeric": [":PunyJS.core.is.Numeric"]
+        , "number": [":PunyJS.core.is.Number"]
+        , "bool": [":PunyJS.core.is.Bool"]
+        , "func": [":PunyJS.core.is.Func"]
+        , "promise": [":PunyJS.core.is.Promise"]
+    }]
+    , "globalRedeclarationList": [":PunyJS.ioc.GlobalRedeclarationList"]
+    , "initClient": [":PunyJS.test.client._InitClient",[]]
+    , "client": [":PunyJS.test.client._Client",[]]
+    , "testRunner": [":PunyJS.test.client._TestRunner",[]]
+    , "importDependency": [":PunyJS.test.client._ImportDependency",[]]
+    , "runTest": [":PunyJS.test.client._RunTest",[]]
+    , "runSetup": [":PunyJS.test.client._RunSetup",[]]
+    , "testHead": [":PunyJS.test.client._TestHead",[]]
+}

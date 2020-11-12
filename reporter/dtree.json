@@ -1,0 +1,48 @@
+{
+    "defaults": [
+        ":PunyJS.test.Defaults"
+        , {"conflictResolution": "error"}
+    ]
+    , "errors": [
+        ":PunyJS.test.runner.Errors"
+        , {"conflictResolution": "error"}
+    ]
+    , "idGenerator": [":PunyJS.core.data._IdGenerator",[]]
+    , "processDetails": [":PunyJS.core.log._ProcessDetails",[]]
+    , "workspacePath": ["+process.cwd()"]
+    , "node":[{
+        "path": ["+require('path')"]
+        , "fs":  ["+require('fs')"]
+    }]
+    , "promise": ["+Promise"]
+    , "utils": [{
+        "copy": [":PunyJS.core.object.Copy"]
+        , "apply": [":PunyJS.core.object.Apply"]
+        , "applyIf": [":PunyJS.core.object.ApplyIf"]
+        , "lookup": [":PunyJS.core.object.Lookup"]
+        , "reference": [":PunyJS.core.object.Reference"]
+        , "regex": [":PunyJS.core.regexp._RegExp"]
+        , "merge": [":PunyJS.core.object.Merge"]
+        , "update": [":PunyJS.core.object.Update"]
+        , "ensure": [":PunyJS.core.object.Ensure"]
+        , "func": [{
+            "inspector": [":PunyJS.core.func._Inspector", []]
+        }]
+    }]
+    , "is": [{
+        "error": [":PunyJS.core.is.Error"]
+        , "nill": [":PunyJS.core.is.Nill"]
+        , "array": [":PunyJS.core.is.Array"]
+        , "string": [":PunyJS.core.is.String"]
+        , "object": [":PunyJS.core.is.Object"]
+        , "regexp": [":PunyJS.core.is.RegExp"]
+        , "empty": [":PunyJS.core.is.Empty"]
+        , "numeric": [":PunyJS.core.is.Numeric"]
+    }]
+    , "fs": [{
+        "filePathInfo": [":PunyJS.core.fs._FilePathInfo", []]
+        , "fileInfo": [":PunyJS.core.fs._FileInfo", []]
+        , "fileLoader": [":PunyJS.core.fs._FileLoader", []]
+        , "fileWriter": [":PunyJS.core.fs._FileWriter", []]
+    }]
+}

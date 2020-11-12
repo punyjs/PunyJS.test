@@ -1,0 +1,13 @@
+{
+    "is": [{
+        "mockCallback": [".test.mocks.callback",".isCallback"]
+    }]
+    , "utils": [{
+        "funcInspector": [":PunyJS.core.func._Inspector",[]]
+    }]
+    , "test": [{
+        "mocks": [{
+            "callback": [":PunyJS.test.mocks._Callback",[]]
+        }]
+    }]
+}

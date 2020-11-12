@@ -1,0 +1,88 @@
+{
+    "promise": ["+Promise"]
+    , "performance": ["+require('perf_hooks').performance"]
+    , "setTimeout": ["+setTimeout"]
+    , "timing": [{
+        "gregorianReform": ["+Date.UTC('1582', '9', '15', '0', '0', '0', '0')"]
+        , "timestamper": [":PunyJS.core.timing._Timestamper",[]]
+    }]
+    , "defaults": [
+        ":PunyJS.test.runner.Defaults"
+        , ":PunyJS.core.data.Defaults"
+        , {"conflictResolution": "error"}
+    ]
+    , "constants": [
+        ":PunyJS.test.runner.Constants"
+        , {"conflictResolution": "error"}
+    ]
+    , "errors": [
+        ":PunyJS.test.runner.Errors"
+        , ":PunyJS.core.data.Errors"
+        , ":PunyJS.core.data.convert.Errors"
+        , {"conflictResolution": "error"}
+    ]
+    , "info": [
+        ":PunyJS.test.runner.Info"
+        , {"conflictResolution": "error"}
+    ]
+    , "workspacePath": ["+process.cwd()"]
+    , "node":[{
+        "path": ["+require('path')"]
+        , "fs":  ["+require('fs')"]
+        , "dirName": ["+__dirname"]
+        , "net": ["+require('net')"]
+        , "tls": ["+require('tls')"]
+        , "process": ["+require('process')"]
+        , "crypto": ["+require('crypto')"]
+        , "buffer": ["+Buffer"]
+    }]
+    , "browser":[{
+        "webSocket": null
+        , "performance": null
+        , "crypto": null
+    }]
+    , "url": ["+URL"]
+    , "security": [{
+        "crypto": [":PunyJS.core.security._Crypto", []]
+        , "fillRandomBytes": [".security.crypto",".fillRandomBytes"]
+        , "fillRandomBytesSync": [".security.crypto",".fillRandomBytesSync"]
+    }]
+    , "utils": [{
+        "copy": [":PunyJS.core.object.Copy"]
+        , "applyIf": [":PunyJS.core.object.ApplyIf"]
+        , "uuid": [":PunyJS.core.data._Uuid",[]]
+        , "reference": [":PunyJS.core.object.Reference"]
+        , "arrayArraytoCsvString": [":PunyJS.core.data.convert._ArrayArraytoCsvString",[]]
+    }]
+    , "is": [{
+        "nill": [":PunyJS.core.is.Nill"]
+        , "array": [":PunyJS.core.is.Array"]
+        , "string": [":PunyJS.core.is.String"]
+        , "object": [":PunyJS.core.is.Object"]
+        , "numeric": [":PunyJS.core.is.Numeric"]
+        , "empty": [":PunyJS.core.is.Empty"]
+        , "bool": [":PunyJS.core.is.Bool"]
+        , "func": [":PunyJS.core.is.Func"]
+        , "error": [":PunyJS.core.is.Error"]
+        , "uuid": [":PunyJS.core.is.Uuid"]
+        , "promise": [":PunyJS.core.is.Promise"]
+    }]
+    , "fs": [{
+        "filePathInfo": [":PunyJS.core.fs._FilePathInfo",[]]
+        , "fileInfo": [":PunyJS.core.fs._FileInfo",[]]
+        , "fileLoader": [":PunyJS.core.fs._FileLoader",[]]
+        , "fileWriter": [":PunyJS.core.fs._FileWriter",[]]
+    }]
+    , "initRunner": [":PunyJS.test.runner._InitRunner",[]]
+    , "clientEventEmitter": [":PunyJS.core.event._EventEmitter",[]]
+    , "clientController": [":PunyJS.test.runner._ClientController",[]]
+    , "runnerLoop": [":PunyJS.test.runner._RunnerLoop",[]]
+    , "runner": [":PunyJS.test.runner._Runner",[]]
+    , "tester": [":PunyJS.test.runner._Tester",[]]
+    , "initTestClients": [":PunyJS.test.runner._InitTestClients",[]]
+    , "testEntryLoader": [":PunyJS.test.runner._TestEntryLoader",[]]
+    , "testMessageSender": [":PunyJS.test.runner._TestMessageSender",[]]
+    , "testIterations": [":PunyJS.test.runner._TestIterations",[]]
+    , "testResultRecorder": [":PunyJS.test.runner._TestResultRecorder",[]]
+    , "$run$": [".initRunner"]
+}

@@ -1,0 +1,8 @@
+{
+    "initNode": [":PunyJS.test.client.node._InitNode",[]]
+    , "$run$": [".initNode"]
+    , "browser": [{
+        "userAgent": null
+    }]
+    , "performance": ["+require('perf_hooks').performance"]
+}

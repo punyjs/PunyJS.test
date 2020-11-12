@@ -1,0 +1,46 @@
+{
+    "name": "punyjs-test-report"
+    , "description": [
+        "This is the build manifest for the PunyJS.test.report project, a web based UI for displaying PunyJS.test.runner test report output."
+    ]
+    , "config": {
+        "strict": true
+        , "engine": "node"
+        , "output": "PunyJS/test/report"
+    }
+    , "repos": [
+        {
+            "type": "git"
+            , "url": "https://github.com/punyjs/PunyJS.core.git"
+            , "branch": "development"
+            , "local": "PunyJS/core"
+        }
+    ]
+    , "appFileName": "app.js"
+    , "appDtreeFileName": "dtree.js"
+    , "iocNamePrefix": "ioc-controller"
+    , "iocType": "monolith"
+    , "appType": "ioc.${iocType}"
+
+    , "entries": [
+        {
+            "type": "bootstrap"
+            , "bootstrapType": "${appType}"
+            , "config": {
+                "fileName": "${name}.cli.js"
+            }
+            , "appContainerPath": "./${appFileName}"
+            , "appDtreePath": "./${appDtreeFileName}"
+        }
+        , {
+            "type": "ioc.monolith"
+            , "config": {
+                "dtreeFileName": "${appDtreeFileName}"
+                , "fileName": "${appFileName}"
+            }
+        }
+        , "{PunyJS.ioc}/manifests/base.manifest.json"
+        , "{PunyJS.ioc}/manifests/node.manifest.json"
+        , "{PunyJS.cmdArgs}/base.manifest.json"
+    ]
+}

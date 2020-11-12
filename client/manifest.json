@@ -1,0 +1,27 @@
+{
+    "name": "punyjs-test-client"
+    , "description": [
+        "This is the build manifest for the PunyJS.test.client project."
+    ]
+    , "config": {
+        "strict": true
+        , "output": "PunyJS/test/client"
+    }
+    , "repos": [
+        {
+            "type": "git"
+            , "url": "https://github.com/punyjs/PunyJS.core.git"
+            , "branch": "development"
+            , "local": "PunyJS/core"
+        }
+    ]
+    , "iocType": "monolith"
+    , "appType": "ioc.${iocType}"
+    , "iocNamePrefix": "ioc-controller"
+
+    , "entries": [
+        "{PunyJS.ioc}/manifests/base.manifest.json"
+        , "{PunyJS.test.client}/browser/browser.manifest.json"
+        , "{PunyJS.test.client}/node/node.manifest.json"
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "name": "punyjs-test-runner"
+    , "description": [
+        "This is the build manifest for the PunyJS.test.runner project."
+    ]
+    , "config": {
+        "strict": true
+        , "engine": "node"
+        , "output": "PunyJS/test/runner"
+    }
+    , "repos": [
+        {
+            "type": "git"
+            , "url": "https://github.com/punyjs/PunyJS.core.git"
+            , "branch": "development"
+            , "local": "PunyJS/core"
+        }
+        , {
+            "type": "npm"
+            , "url": "express"
+            , "branch": "^4.17.1"
+        }
+    ]
+    , "appFileName": "app.js"
+    , "appDtreeFileName": "dtree.js"
+    , "iocNamePrefix": "ioc-controller"
+    , "iocType": "monolith"
+    , "appType": "ioc.${iocType}"
+
+    , "base": [
+        "{PunyJS.core.net.http}/dtree.json"
+        , "{PunyJS.core.net.http}/node.dtree.json"
+        , "{PunyJS.core.encoding}/dtree.json"
+        , "{PunyJS.core.encoding}/node.dtree.json"
+        , "{PunyJS.core.security}/dtree.json"
+        , "{PunyJS.core.security}/node.dtree.json"
+    ]
+
+    , "entries": [
+        {
+            "type": "bootstrap"
+            , "bootstrapType": "${appType}"
+            , "config": {
+                "fileName": "cli.js"
+            }
+            , "appContainerPath": "./${appFileName}"
+            , "appDtreePath": "./${appDtreeFileName}"
+        }
+        , {
+            "type": "ioc.monolith"
+            , "base": [
+                "{PunyJS.test.recorders}/dtree.json"
+            ]
+            , "dtree": "{PunyJS.test.runner}/dtree.json"
+            , "config": {
+                "dtreeFileName": "${appDtreeFileName}"
+                , "fileName": "${appFileName}"
+            }
+        }
+        , "{PunyJS.ioc}/manifests/base.manifest.json"
+        , "{PunyJS.ioc}/manifests/node.manifest.json"
+        , "{PunyJS.cmdArgs}/base.manifest.json"
+        , {
+            "type": "file"
+            , "paths": [
+                "{PunyJS.test.runner}/resources/gen-cert.sh"
+            ]
+        }
+    ]
+}

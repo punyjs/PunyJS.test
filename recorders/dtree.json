@@ -1,0 +1,6 @@
+{
+    "recorders": [{
+        "simpleFile": [":PunyJS.test.recorders._SimpleFileRecorder",[]]
+        , "console": [":PunyJS.test.recorders._ConsoleRecorder",[]]
+    }]
+}

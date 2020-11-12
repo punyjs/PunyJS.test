@@ -1,0 +1,14 @@
+{
+    "test": {
+        "instructions": [
+            "reset"
+            , "add"
+            , "remove"
+            , "execute"
+            , "meta"
+        ]
+    }
+    , "convert": {
+        "NS_MS": 1e6
+    }
+}

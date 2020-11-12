@@ -1,0 +1,8 @@
+{
+    "initBrowser": [":PunyJS.test.client.browser._InitBrowser",[]]
+    , "$run$": [".initBrowser"]
+    , "browser": [{
+        "userAgent": ["+window.navigator.userAgent"]
+    }]
+    , "performance": ["+performance"]
+}

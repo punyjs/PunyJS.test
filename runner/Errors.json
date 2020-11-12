@@ -1,0 +1,14 @@
+{
+    "test": {
+        "runner": {
+            "invalid_test_namespace": "[Invalid Test Namespace] The test namespace command argument is missing or invalid; add a `--namespace Ns.to.test` the command line argument."
+            , "message_failed": "[Message Failed] A message has failed to send."
+            , "missing_handle": "[Missing Handle] A message has been received with an invalid message ID."
+            , "client_missing": "[Client Missing] The client no longer exists in the client list."
+            , "client_invalid": "[Client Invalid] The client id does not exist in the client list."
+            , "invalid_response": "[Invalid Response] The message from the client is invalid."
+            , "message_timeout": "[Message Timeout] One or more clients took too long to respond."
+            , "missing_recorder": "[Missing Recorder] The test results recorder was not found, either add it to the recorders branch, in the dependency tree) or change the test results recorder in the configuration."
+        }
+    }
+}
