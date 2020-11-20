@@ -5,7 +5,7 @@
             , "loopInterval": 250
             , "shutdownWaitMs": 30000
             , "clientMessageTimeout": 120000
-            , "testFilename": "test.json"
+            , "testFileName": "test.json"
             , "recorder": "console"
             , "verbosity": 0
             , "totalIterations": 1

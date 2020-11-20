@@ -75,8 +75,8 @@ function _Runner(
     */
     function createTestPackagePath(config) {
         try {
-            var testFilename = config.testFilename
-                || defaults.test.runner.testFilename
+            var testFilename = config.testFileName
+                || defaults.test.runner.testFileName
             , path = node_path.join(
                 config.path
                 , testFilename
