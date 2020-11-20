@@ -377,12 +377,15 @@ function _RunTest(
             .forEach(
                 function forEachAssertion(assertion) {
                     //convert the error to a string for serialization
-                    if (is_error(assertion.error)) {
-                        if (!!assertion.error.stack) {
-                            assertion.error = assertion.error.stack;
+                    if (is_error(assertion.exception)) {
+                        if (!!assertion.exception.stack) {
+                            assertion.exception = assertion.exception.stack;
                         }
                         else {
-                            assertion.error = `${assertion.error}`;
+                            assertion.exception = `${assertion.exception}`;
+                        }
+                        if (!testToken.exception) {
+                            testToken.exception = assertion.exception;
                         }
                     }
                     testToken.passed = testToken.passed

@@ -204,8 +204,8 @@ function _TestIterations(
                     && processedClientResult.passed
                     || false
                 ;
-                if (!!processedClientResult.exception) {
-                    client.exception = processedClientResult.exception;
+                if (!!processedClientResult.results.exception) {
+                    client.exception = processedClientResult.results.exception;
                 }
                 client.iterations[iterationNum] = processedClientResult;
             });
@@ -234,6 +234,9 @@ function _TestIterations(
                 test = JSON.parse(result);
                 record.passed = test.passed;
                 record.results = test;
+                if (!!result.exception) {
+                    record.exception = result.exception;
+                }
             }
         }
         catch (ex) {

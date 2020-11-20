@@ -56,7 +56,7 @@ function _TestHead(
     */
     function getTrap(assertionProxy, assertion, target, propName) {
         //if there was an error skip the rest
-        if (!!assertion.error) {
+        if (!!assertion.exception) {
             //return the proxy for chaining
             return assertionProxy;
         }
@@ -83,7 +83,7 @@ function _TestHead(
         else {
             if (!assertion.valueSet) {
                 assertion.passed = false;
-                assertion.error = new Error(
+                assertion.exception = new Error(
                     `${errors.test.client.missing_assertion_value} (${assertion.title})`
                 );
                 return emptyFn.bind(null, assertionProxy);
@@ -113,7 +113,7 @@ function _TestHead(
         }
         //made it here invalid property
         assertion.passed = false;
-        assertion.error = new Error(
+        assertion.exception = new Error(
             `${errors.test.client.invalid_testhead_property} (${propName})`
         );
         //return the proxy for chaining
@@ -152,7 +152,7 @@ function _TestHead(
             if (is_array(newValue)) {
                 if(is_error(newValue[1])) {
                     assertion.passed = false;
-                    assertion.error = newValue[1];
+                    assertion.exception = newValue[1];
                 }
                 else {
                     assertion.value = newValue[0];
@@ -164,7 +164,7 @@ function _TestHead(
         }
         catch(ex) {
             assertion.passed = false;
-            assertion.error = ex;
+            assertion.exception = ex;
         }
         //return the proxy for chaining
         return assertionProxy;

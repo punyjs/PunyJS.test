@@ -143,7 +143,8 @@ function _TestRunner(
             //start a promise chain
             , proc = promise.resolve()
             , results = []
-            , passed = true;
+            , passed = true
+            , exception;
 
             Object.keys(tests)
             .forEach(function forEachTest(testKey, indx) {
@@ -152,6 +153,9 @@ function _TestRunner(
                     if (indx > 0) {
                         results.push(result);
                         passed = passed && result.passed;
+                        if (!!result.exception && !exception) {
+                            exception = result.exception;
+                        }
                     }
                     return promise.resolve();
                 })
@@ -167,10 +171,14 @@ function _TestRunner(
             proc = proc.then(function thenRecordResult(result) {
                 results.push(result);
                 passed = passed && result.passed;
+                if (!!result.exception && !exception) {
+                    exception = result.exception;
+                }
                 return promise.resolve(
                     {
                         "passed": passed
                         , "tests": results
+                        , "exception": exception
                     }
                 );
             });
