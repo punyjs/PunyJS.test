@@ -73,9 +73,12 @@ function _ConsoleRecorder(
             );
             console.log("");
             console.log("Iteration Count: ", clientResults.iterations.length);
-            console.log("Test Count: ", stats.testCount);
-            console.log("Passed Count: ", stats.passedCount);
-            console.log("Failed Count: ", stats.failedCount);
+            console.log(
+                "Tests Passed: "
+                , stats.passedCount
+                , " of "
+                , stats.testCount
+            );
         }
 
         console.log("-----------------------------------");
