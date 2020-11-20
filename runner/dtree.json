@@ -74,7 +74,7 @@
         , "fileWriter": [":PunyJS.core.fs._FileWriter",[]]
     }]
     , "initRunner": [":PunyJS.test.runner._InitRunner",[]]
-    , "clientEventEmitter": [":PunyJS.core.event._EventEmitter",[]]
+    , "eventEmitter": [":PunyJS.core.event._EventEmitter",[]]
     , "clientController": [":PunyJS.test.runner._ClientController",[]]
     , "runnerLoop": [":PunyJS.test.runner._RunnerLoop",[]]
     , "runner": [":PunyJS.test.runner._Runner",[]]

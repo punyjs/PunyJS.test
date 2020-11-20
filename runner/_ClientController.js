@@ -11,7 +11,7 @@ function _ClientController(
     , is_string
     , utils_uuid
     , utils_copy
-    , clientEventEmitter
+    , eventEmitter
     , reporter
     , defaults
     , errors
@@ -33,35 +33,40 @@ function _ClientController(
                 "clean"
             ]
         }
-    };
+    }
+    , ClientController = Object.create(
+        eventEmitter()
+        , {
+            "register": {
+                "enumerable": true
+                , "value": registerClient
+            }
+            , "deregister": {
+                "enumerable": true
+                , "value": deregisterClient
+            }
+            , "clients": {
+                "enumerable": true
+                , "get": function getClients() {
+                    return Object.keys(clients);
+                }
+            }
+            , "clientMeta": {
+                "enumerable": true
+                , "value": clientMeta
+            }
+            , "sendMessage": {
+                "enumerable": true
+                , "value": sendMessage
+            }
+        }
+    )
+    ;
 
     /**
     * @worker
     */
-    return Object.create(clientEventEmitter, {
-        "register": {
-            "enumerable": true
-            , "value": registerClient
-        }
-        , "deregister": {
-            "enumerable": true
-            , "value": deregisterClient
-        }
-        , "clients": {
-            "enumerable": true
-            , "get": function getClients() {
-                return Object.keys(clients);
-            }
-        }
-        , "clientMeta": {
-            "enumerable": true
-            , "value": clientMeta
-        }
-        , "sendMessage": {
-            "enumerable": true
-            , "value": sendMessage
-        }
-    });
+    return ClientController;
 
     /**
     * @function
@@ -101,7 +106,7 @@ function _ClientController(
     * @function
     */
     function handleClose(id) {
-        clientEventEmitter(
+        ClientController.emit(
             "close"
             , id
         );
