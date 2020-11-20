@@ -30,7 +30,7 @@ function _HasResponseOf(
             return [
                 false
                 , [
-                    error.test.client.assertions.not_callback
+                    errors.test.client.assertions.not_callback
                     , response
                 ]
             ];

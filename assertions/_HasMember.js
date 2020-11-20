@@ -5,6 +5,7 @@
 */
 function _HasMember(
     is_array
+    , errors
 ) {
 
 

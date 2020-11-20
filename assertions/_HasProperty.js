@@ -7,6 +7,7 @@ function _HasProperty(
     is_object
     , is_array
     , is_func
+    , errors
 ) {
 
     /**

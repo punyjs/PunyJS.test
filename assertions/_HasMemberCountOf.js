@@ -4,6 +4,7 @@
 */
 function _HasMemberCountOf(
     is_array
+    , errors
 ) {
 
 
