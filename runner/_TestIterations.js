@@ -199,13 +199,15 @@ function _TestIterations(
                 , processedClientResult = processClientResult(
                     clientResults[id]
                     , iterationNum
-                );
+                )
+                , exception = processedClientResult.exception
+                ;
                 client.passed = client.passed
                     && processedClientResult.passed
                     || false
                 ;
-                if (!!processedClientResult.results.exception) {
-                    client.exception = processedClientResult.results.exception;
+                if (!!exception) {
+                    client.exception = exception;
                 }
                 client.iterations[iterationNum] = processedClientResult;
             });
@@ -234,8 +236,8 @@ function _TestIterations(
                 test = JSON.parse(result);
                 record.passed = test.passed;
                 record.results = test;
-                if (!!result.exception) {
-                    record.exception = result.exception;
+                if (!!test.exception) {
+                    record.exception = test.exception;
                 }
             }
         }
