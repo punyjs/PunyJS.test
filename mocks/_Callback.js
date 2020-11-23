@@ -58,11 +58,11 @@ function _Callback(
         /**
         * @base
         */
-        function callback() {
+        function callback(...cbArgs) {
             //create a local var to hold the response (so we don't overwrite the original)
             var entry = {
                 "num": callbacks.length
-                , "args": Array.prototype.slice.call(args, 0)
+                , "args": cbArgs
                 , "scope": this
                 , "timestamp": performance.now()
             }
@@ -72,7 +72,7 @@ function _Callback(
             //run the response
             if (typeof resp === 'function' && !!autoRun) {
                 //run the function
-                resp = resp.apply(this, args);
+                resp = resp.apply(this, cbArgs);
             }
             //add the response
             entry.response = resp;
