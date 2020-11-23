@@ -11,6 +11,7 @@
             , "assertion_value_set": "[Assertion Value Set] The assertion value has already been set."
             , "invalid_testhead_property": "[Invalid Testhead Property] The testhead property accessed does not exist"
             , "missing_assertion_value": "[Missing Assertion Value] The assertion value must be set before conversions or assertions are used."
+            , "nonobject_value_path": "[Non-object Value Path] When using a value path, the value must be an object."
         }
     }
 }

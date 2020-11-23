@@ -36,6 +36,7 @@
         , "applyIf": [":PunyJS.core.object.ApplyIf"]
         , "guid": [":PunyJS.core.data._Uuid",[]]
         , "reference": [":PunyJS.core.object.Reference"]
+        , "lookup": [":PunyJS.core.object.Lookup"]
         , "ensure": [":PunyJS.core.object.Ensure"]
         , "function": ["+Function"]
         , "asyncFunction": ["+Object.getPrototypeOf(async function(){}).constructor"]

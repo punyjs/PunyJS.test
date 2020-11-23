@@ -7,6 +7,7 @@ function _TestHead(
     , test_conversions
     , is_array
     , is_error
+    , utils_lookup
     , errors
 ) {
 
@@ -73,6 +74,7 @@ function _TestHead(
             );
         }
         else if (propName === "not") {
+            assertion.not = true;
             assertion.results.push(
                 ["not"]
             );
@@ -123,13 +125,27 @@ function _TestHead(
     /**
     * @function
     */
-    function setValue(assertionProxy, assertion, value) {
+    function setValue(assertionProxy, assertion, value, path) {
         if (!!assertion.hasOwnProperty("value")) {
             throw new Error(
                 `${errors.test.client.assertion_value_set}`
             );
         }
-        assertion.value = value;
+        //if there is a path then value should be an object
+        if (!!path) {
+            if (!is_object(value)) {
+                throw new Error(
+                    `${errors.test.client.nonobject_value_path}`
+                );
+            }
+            assertion.value = utils_lookup(
+                value
+                , path
+            );
+        }
+        else {
+            assertion.value = value;
+        }
         //return the proxy for chaining
         return assertionProxy;
     }
@@ -183,13 +199,18 @@ function _TestHead(
             , result = assertionFunc.apply(
                 null
                 , assertArgs
-            );
+            )
+            , assertionPass;
             if (!is_array(result)) {
                 result = [result];
             }
+            //the first results member is the passed value
+            assertionPass = !!result[0];
+            if (assertion.not) {
+                assertionPass = !assertionPass;
+            }
             assertion.passed = assertion.passed
-                && !!result[0]
-                || false
+                && assertionPass
             ;
             //add the assertion name to the result
             result.unshift(propName);
