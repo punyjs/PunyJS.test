@@ -7,6 +7,7 @@ function _TestHead(
     , test_conversions
     , is_array
     , is_error
+    , is_object
     , utils_lookup
     , errors
 ) {
@@ -78,8 +79,6 @@ function _TestHead(
             assertion.results.push(
                 ["not"]
             );
-            //invert the passed value
-            assertion.passed = !assertion.passed;
             return assertionProxy;
         }
         else {
@@ -139,8 +138,8 @@ function _TestHead(
                 );
             }
             assertion.value = utils_lookup(
-                value
-                , path
+                path
+                , value
             );
         }
         else {
@@ -200,7 +199,8 @@ function _TestHead(
                 null
                 , assertArgs
             )
-            , assertionPass;
+            , assertionPass
+            ;
             if (!is_array(result)) {
                 result = [result];
             }
@@ -221,7 +221,7 @@ function _TestHead(
         }
         catch(ex) {
             assertion.passed = false;
-            assertion.error = ex;
+            assertion.exception = ex;
         }
         //return the proxy for chaining
         return assertionProxy;
