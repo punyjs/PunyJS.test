@@ -5,10 +5,11 @@
 */
 function _GetCallbackResp(
     is_mockCallback
+    , is_nill
     , errors
 ) {
 
-    
+
     return GetCallbackResponse;
 
     /**
@@ -20,7 +21,7 @@ function _GetCallbackResp(
     */
     function GetCallbackResponse(cb, num) {
         //they could have called this without a call number, so set it to 0
-        if (isNill(num)) {
+        if (is_nill(num)) {
             num = 0;
         }
 

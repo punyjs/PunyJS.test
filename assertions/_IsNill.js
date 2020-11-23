@@ -4,7 +4,7 @@
 * @factory
 */
 function _IsNill(
-
+    is_nill
 ) {
 
     return IsNill;
@@ -16,6 +16,6 @@ function _IsNill(
     * @returns {boolean}
     */
     function IsNill(value) {
-        return isNill(value);
+        return is_nill(value);
     }
 }

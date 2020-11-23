@@ -5,6 +5,7 @@
 */
 function _GetCallbackArg(
     is_mockCallback
+    , is_nill
     , errors
 ) {
 
@@ -20,10 +21,10 @@ function _GetCallbackArg(
     */
     function GetCallbackArg(cb, num, index) {
         //they could have called this without a call number, so set it to 0
-        if (isNill(num)) {
+        if (is_nill(num)) {
             num = 0;
         }
-        if (isNill(index)) {
+        if (is_nill(index)) {
             index = 0;
         }
 

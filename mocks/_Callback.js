@@ -148,7 +148,7 @@ function _Callback(
                 "enumerable": true
                 , "value": function (resp, auto) {
                     response = resp;
-                    if (!isNill(auto)) {
+                    if (!is_nill(auto)) {
                         autoRun = auto;
                     }
                 }
