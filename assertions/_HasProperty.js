@@ -28,12 +28,15 @@ function _HasProperty(
             ];
         }
 
-        var keys = Object.keys(value);
+        var keys = Object.getOwnPropertyNames(value)
+        , symbols = Object.getOwnPropertySymbols(value)
+        , combinedKeys = keys.concat(symbols)
+        ;
 
         return [
-            keys.indexOf(name) !== -1
+            combinedKeys.indexOf(name) !== -1
             , [
-                keys
+                combinedKeys
                 , name
             ]
         ];

@@ -28,8 +28,12 @@ function _HasPropertyCountOf(
             ];
         }
 
-        var propCnt = Object.keys(value).length;
-
+        var keys = Object.getOwnPropertyNames(value)
+        , symbols = Object.getOwnPropertySymbols(value)
+        , combinedKeys = keys.concat(symbols)
+        , propCnt = combinedKeys.length
+        ;
+        
         return [
             propCnt === cnt
             , [
