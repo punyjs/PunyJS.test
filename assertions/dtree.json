@@ -28,6 +28,8 @@
             , "hasMemberCountOf": [":PunyJS.test.assertions._HasMemberCountOf",[]]
             , "hasProperty": [":PunyJS.test.assertions._HasProperty",[]]
             , "hasPropertyCountOf": [":PunyJS.test.assertions._HasPropertyCountOf",[]]
+            , "hasOwnProperty": [":PunyJS.test.assertions._HasOwnProperty",[]]
+            , "hasOwnPropertyCountOf": [":PunyJS.test.assertions._HasOwnPropertyCountOf",[]]
             , "hasResponseOf": [":PunyJS.test.assertions._HasResponseOf",[]]
             , "isAlmost": [":PunyJS.test.assertions._IsAlmost",[]]
             , "isBetween": [":PunyJS.test.assertions._IsBetween",[]]
