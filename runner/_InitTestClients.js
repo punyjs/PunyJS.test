@@ -82,6 +82,19 @@ function _InitTestClients(
             `${info.test.runner.upload_test}`
         );
         ///END LOGGING
+        //if there is a testEntry config property then reduce the test package
+        if (!!config.testEntry) {
+            testPackage = testPackage.filter(
+                function filterTestPackage(entry) {
+                    if (entry.type === "test") {
+                        if (config.testEntry.indexOf(entry.name) === -1) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            );
+        }
         //load the unit under test entries
         return testEntryLoader(
             testPackage

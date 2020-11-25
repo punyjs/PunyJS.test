@@ -15,6 +15,7 @@ function _RunnerInit(
     , workspacePath
     , utils_copy
     , utils_applyIf
+    , is_string
     , fs_fileLoader
     , reporter
     , defaults
@@ -117,6 +118,12 @@ function _RunnerInit(
                     )
                     .length
                 ;
+            }
+            //parse the testEntry config
+            if (config.testEntry) {
+                if (is_string(config.testEntry)) {
+                    config.testEntry = config.testEntry.split(",")
+                }
             }
 
             //add any defaults
