@@ -40,6 +40,9 @@
         , "ensure": [":PunyJS.core.object.Ensure"]
         , "function": ["+Function"]
         , "asyncFunction": ["+Object.getPrototypeOf(async function(){}).constructor"]
+        , "json": [":PunyJS.core.json._Json",[]]
+        , "decycleStringify": [".utils.json", ".decycle"]
+        , "retrocycleParse": [".utils.json", ".retrocycle"]
     }]
     , "is": [{
         "error": [":PunyJS.core.is.Error"]
@@ -47,6 +50,7 @@
         , "array": [":PunyJS.core.is.Array"]
         , "string": [":PunyJS.core.is.String"]
         , "object": [":PunyJS.core.is.Object"]
+        , "objectValue": [":PunyJS.core.is.ObjectValue"]
         , "regexp": [":PunyJS.core.is.RegExp"]
         , "empty": [":PunyJS.core.is.Empty"]
         , "numeric": [":PunyJS.core.is.Numeric"]

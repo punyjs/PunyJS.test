@@ -144,9 +144,20 @@ function _TestRunner(
             , proc = promise.resolve()
             , results = []
             , passed = true
-            , exception;
+            , exception
+            , keys = Object.keys(tests)
+            ;
 
-            Object.keys(tests)
+            if (keys.length === 0) {
+                return promise.resolve(
+                    {
+                        "passed": false
+                        , "tests": []
+                    }
+                );
+            }
+
+            keys
             .forEach(function forEachTest(testKey, indx) {
                 //process the results from the last test
                 proc = proc.then(function thenRecordResult(result) {

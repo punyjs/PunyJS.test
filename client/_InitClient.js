@@ -10,6 +10,7 @@ function _InitClient(
     , client
     , utils_applyIf
     , utils_copy
+    , utils_decycleStringify
     , is_nill
     , is_string
     , is_object
@@ -159,7 +160,7 @@ function _InitClient(
                 msg = `${msg}:${result}`;
             }
             else if (is_object(result)) {
-                msg = `${msg}:${JSON.stringify(result)}`;
+                msg = `${msg}:${utils_decycleStringify(result)}`;
             }
             else {
                 msg = `${msg}`;

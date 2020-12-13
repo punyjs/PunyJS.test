@@ -99,7 +99,7 @@ function _ImportDependency(
             //if the module code is falsey then we failed to find the dependency
             if (!moduleCode) {
                 throw new Error(
-                    `${errors.import_path_not_found} (${dependencyPath})`
+                    `${errors.test.client.import_path_not_found} (${dependencyPath})`
                 );
             }
             //create the IIFE with the parameter names and body

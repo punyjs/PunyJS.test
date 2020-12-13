@@ -41,6 +41,12 @@ function _RunTest(
     */
     async function RunTest(test, testDependencies) {
         try {
+            var testToken = {
+                "testName": test.name
+                , "runtimes": {}
+                , "assertions": []
+                , "passed": true
+            };
             //hydrate the test if the value doesn't already exist
             if (!test.hasOwnProperty("value")) {
                 test.value = await hydrateTestFactory(
@@ -54,13 +60,7 @@ function _RunTest(
                 test
                 , testDependencies
                 , test.dependencies
-            )
-            , testToken = {
-                "testName": test.name
-                , "runtimes": {}
-                , "assertions": []
-                , "passed": true
-            } //execute the test factory
+            ) //execute the test factory
             , factoryResult =
                 testFactory.apply(
                     null
@@ -85,6 +85,13 @@ function _RunTest(
                         , testDependencies
                     );
                 }
+            )
+            .catch(
+                function catchTestError(err) {
+                    testToken.passed = false;
+                    testToken.exception = err;
+                    return promise.resolve(testToken);
+                }
             );
             //then process assertion results
             return proc.then(
@@ -96,7 +103,14 @@ function _RunTest(
             );
         }
         catch(ex) {
-            return promise.reject(ex);
+            testToken.passed = false;
+            if (!!ex.stack) {
+                testToken.exception = ex.stack;
+            }
+            else {
+                testToken.exception = `${ex}`;
+            }
+            return promise.resolve(testToken);
         }
     }
 
@@ -369,6 +383,16 @@ function _RunTest(
     */
     function processAssertionResults(testToken) {
         try {
+            if (!!testToken.exception) {
+                if (!!testToken.exception.stack) {
+                    testToken.exception = testToken.exception.stack;
+                }
+                else {
+                    testToken.exception = `${testToken.exception}`;
+                }
+                return testToken;
+            }
+
             //set the passed variable
             testToken.passed = true;
 
@@ -383,9 +407,6 @@ function _RunTest(
                         }
                         else {
                             assertion.exception = `${assertion.exception}`;
-                        }
-                        if (!testToken.exception) {
-                            testToken.exception = assertion.exception;
                         }
                     }
                     testToken.passed = testToken.passed
