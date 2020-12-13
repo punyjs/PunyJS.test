@@ -95,6 +95,13 @@ function _ConsoleRecorder(
         ;
 
         console.log("Iteration: ", index + 1);
+
+        if (!!iteration.exception) {
+            console.log(iteration.exception);
+            console.log("");
+            return;
+        }
+
         console.log(
             "Tests Passed: "
             , stats.passedCount
@@ -108,17 +115,15 @@ function _ConsoleRecorder(
             //loop through the tests
             iteration.results.tests
             .forEach(
-                processResult.bind(null, config, iteration.results.tests)
+                processTestResult.bind(null, config, iteration.results.tests)
             );
             console.groupEnd();
         }
-
-
     }
     /**
     * @function
     */
-    function processResult(config, results, result) {
+    function processTestResult(config, results, result) {
         var testName = result.testName
         , runtimes = result.runtimes
         , assertions = result.assertions
@@ -126,8 +131,15 @@ function _ConsoleRecorder(
             assertions
         )
         ;
-
         console.log("Test: ", testName);
+
+        if (!!result.exception) {
+            console.log(result.exception);
+            console.log("");
+            return;
+        }
+
+
         console.log(
             "Assertions Passed: "
             , stats.passedCount
