@@ -28,6 +28,7 @@
             , "hasMemberCountOf": [":PunyJS.test.assertions._HasMemberCountOf",[]]
             , "hasProperty": [":PunyJS.test.assertions._HasProperty",[]]
             , "hasPropertyCountOf": [":PunyJS.test.assertions._HasPropertyCountOf",[]]
+            , "hasPrototypeOf": [":PunyJS.test.assertions._HasPrototypeOf",[]] 
             , "hasOwnProperty": [":PunyJS.test.assertions._HasOwnProperty",[]]
             , "hasOwnPropertyCountOf": [":PunyJS.test.assertions._HasOwnPropertyCountOf",[]]
             , "hasResponseOf": [":PunyJS.test.assertions._HasResponseOf",[]]
