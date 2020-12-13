@@ -43,6 +43,6 @@ function _GetCallbackArgs(
         //get he args for this call
         var cbArgs = cb.getArgs(num);
 
-        return cbArgs;
+        return [cbArgs, [num]];
     }
 }

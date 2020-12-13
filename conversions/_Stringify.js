@@ -4,7 +4,7 @@
 * @factory
 */
 function _Stringify(
-    utils_stringify
+    utils_decycleStringify
 ) {
 
     return Stringify;
@@ -17,7 +17,7 @@ function _Stringify(
     */
     function Stringify(value) {
         return !!value
-            && utils_stringify(value)
+            && utils_decycleStringify(value)
             || value
         ;
     }

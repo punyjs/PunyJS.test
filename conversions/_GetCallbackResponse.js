@@ -43,6 +43,6 @@ function _GetCallbackResp(
         //get he args for this call
         var cbResp = cb.getResponse(num);
 
-        return cbResp;
+        return [cbResp, [num]];
     }
 }
