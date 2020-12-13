@@ -7,6 +7,7 @@ function _TestIterations(
     , performance
     , testEntryLoader
     , testMessageSender
+    , utils_retrocycleParse
     , is_error
     , reporter
     , info
@@ -200,15 +201,11 @@ function _TestIterations(
                     clientResults[id]
                     , iterationNum
                 )
-                , exception = processedClientResult.exception
                 ;
                 client.passed = client.passed
                     && processedClientResult.passed
                     || false
                 ;
-                if (!!exception) {
-                    client.exception = exception;
-                }
                 client.iterations[iterationNum] = processedClientResult;
             });
 
@@ -233,7 +230,7 @@ function _TestIterations(
                 record.exception = result;
             }
             else if (!!result) {
-                test = JSON.parse(result);
+                test = utils_retrocycleParse(result);
                 record.passed = test.passed;
                 record.results = test;
                 if (!!test.exception) {

@@ -98,7 +98,7 @@ function _RunnerInit(
                 || !NS_PATT.test(config.namespace)
             ) {
                 throw new Error(
-                    `${errors.invalid_test_namespace}`
+                    `${errors.test.runner.invalid_test_namespace}`
                 );
             }
             ///END INPUT VALIDATION
@@ -361,7 +361,7 @@ function _RunnerInit(
             if (cleanupCnt !== 0) {
                 reject(
                     new Error(
-                        `${errors.test_runner_shutdown_timeout}`
+                        `${errors.test.runner.test_runner_shutdown_timeout}`
                     )
                 );
             }

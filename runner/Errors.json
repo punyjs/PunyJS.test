@@ -9,6 +9,7 @@
             , "invalid_response": "[Invalid Response] The message from the client is invalid."
             , "message_timeout": "[Message Timeout] One or more clients took too long to respond."
             , "missing_recorder": "[Missing Recorder] The test results recorder was not found, either add it to the recorders branch, in the dependency tree) or change the test results recorder in the configuration."
+            , "test_runner_shutdown_timeout": "[Test Runner Shutdown Timeout] The test runner did not shut down in time."
         }
     }
 }
