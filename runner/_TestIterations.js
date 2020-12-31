@@ -233,9 +233,6 @@ function _TestIterations(
                 test = utils_retrocycleParse(result);
                 record.passed = test.passed;
                 record.results = test;
-                if (!!test.exception) {
-                    record.exception = test.exception;
-                }
             }
         }
         catch (ex) {
