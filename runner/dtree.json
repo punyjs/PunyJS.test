@@ -56,6 +56,7 @@
         , "json": [":PunyJS.core.json._Json",[]]
         , "decycleStringify": [".utils.json", ".decycle"]
         , "retrocycleParse": [".utils.json", ".retrocycle"]
+        , "clear": [":PunyJS.core.object.Clear"]
     }]
     , "is": [{
         "nill": [":PunyJS.core.is.Nill"]

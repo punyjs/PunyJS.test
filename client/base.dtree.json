@@ -38,6 +38,7 @@
         , "reference": [":PunyJS.core.object.Reference"]
         , "lookup": [":PunyJS.core.object.Lookup"]
         , "ensure": [":PunyJS.core.object.Ensure"]
+        , "clear": [":PunyJS.core.object.Clear"]
         , "function": ["+Function"]
         , "asyncFunction": ["+Object.getPrototypeOf(async function(){}).constructor"]
         , "json": [":PunyJS.core.json._Json",[]]
