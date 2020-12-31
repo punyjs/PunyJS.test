@@ -272,7 +272,7 @@ function _ClientController(
         try {
             if (!clients.hasOwnProperty(clientId)) {
                 throw new Error(
-                    `${errors.test.runer.client_missing} (${clientId}, ${msgId})`
+                    `${errors.test.runner.client_missing} (${clientId}, ${msgId})`
                 );
             }
             //add the handle for this message
