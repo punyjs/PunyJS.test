@@ -16,7 +16,7 @@ function _ConsoleRecorder(
         return processClients(
             config
             , testResults
-        )
+        );
     }
 
     /**
@@ -131,33 +131,47 @@ function _ConsoleRecorder(
             assertions
         )
         ;
-        console.log("Test: ", testName);
+        if (!result.passed || config.verbosity > 3) {
+            console.log("Test: ", testName);
 
-        if (!!result.exception) {
-            console.log(result.exception);
-            console.log("");
-            return;
-        }
+            if (!!result.exception) {
+                console.warn(result.exception);
+                console.log("");
+                return;
+            }
 
-
-        console.log(
-            "Assertions Passed: "
-            , stats.passedCount
-            , " of "
-            , stats.assertionCount
-        );
-        console.log("");
-
-        if (config.verbosity > 3) {
-            console.group();
-            //loop through the assertions
-            assertions.forEach(
-                processAssertion.bind(null, config)
+            console.log(
+                "Assertions Passed: "
+                , stats.passedCount
+                , " of "
+                , stats.assertionCount
             );
-            console.groupEnd();
+            if (config.verbosity > 5 || config.hasOwnProperty("runtimes")) {
+                console.log(
+                    [
+                        "Runtimes: "
+                        , "arrange "
+                        , runtimes.arrange.toPrecision(4)
+                        , "ns, act "
+                        , runtimes.act.toPrecision(4)
+                        , "ns, assert "
+                        , runtimes.assert.toPrecision(4)
+                        , "ns"
+                    ].join("")
+                );
+            }
             console.log("");
-        }
 
+            if (!result.passed || config.verbosity > 4) {
+                console.group();
+                //loop through the assertions
+                assertions.forEach(
+                    processAssertion.bind(null, config)
+                );
+                console.groupEnd();
+                console.log("");
+            }
+        }
     }
     /**
     * @function
