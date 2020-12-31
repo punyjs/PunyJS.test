@@ -7,7 +7,7 @@ function _TestHead(
     , test_conversions
     , is_array
     , is_error
-    , is_object
+    , is_objectValue
     , utils_lookup
     , errors
 ) {
@@ -132,7 +132,7 @@ function _TestHead(
         }
         //if there is a path then value should be an object
         if (!!path) {
-            if (!is_object(value)) {
+            if (!is_objectValue(value) && !is_array(value)) {
                 throw new Error(
                     `${errors.test.client.nonobject_value_path}`
                 );
