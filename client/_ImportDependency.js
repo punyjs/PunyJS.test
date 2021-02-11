@@ -45,12 +45,12 @@ function _ImportDependency(
     * A regular expression pattern for replacing dynamic import statements
     * @property
     */
-    , DYNAMIC_IMPORT_PATT = /(?:^|[^a-zA-Z0-9_$])(?![$])import[\s]*\(([^\)]+)\)/g
+    , DYNAMIC_IMPORT_PATT = /(^|[^a-zA-Z0-9_$])(?![$])import[\s]*\(([^\)]+)\)/g
     /**
     * A regular expression pattern for replacing static require statments
     * @property
     */
-    , NODE_REQUIRE_PATT = /(?:^|[^a-zA-Z0-9_$])require[\s]*\(([^\)]+)\)/g
+    , NODE_REQUIRE_PATT = /(^|[^a-zA-Z0-9_$])require[\s]*\(([^\)]+)\)/g
     ;
 
     return ImportDependency;
@@ -59,7 +59,7 @@ function _ImportDependency(
     * @worker
     *   @async
     */
-    function ImportDependency(unitItems, dependencyPath, mocks) {
+    function ImportDependency(unitItems, mocks, dependencyPath) {
         try {
             //convert the path to a namespace
             var dependencyName =
@@ -231,7 +231,7 @@ function _ImportDependency(
                 //remove trailing comma
                 statement = statement.substring(0, statement.length - 2);
                 //finish the destructuring statement
-                statement+= "}=await import(${path});";
+                statement+= "}=await import('import-static', ${path});";
                 return statement;
             }
         );
@@ -243,8 +243,17 @@ function _ImportDependency(
     function updateDynamicImport(data) {
         return data.replace(
             DYNAMIC_IMPORT_PATT
-            , function replaceDynamicImport(match) {
-                return match.replace("import", "$import$");
+            , function replaceDynamicImport(match, prefix, args) {
+                var importType = '"import-dynamic"'
+                ;
+                if (!args) {
+                    args = importType
+                }
+                else {
+                    args = `${importType},${args}`;
+                }
+
+                return `${prefix || ""}$import$(${args})`;
             }
         );
     }
@@ -255,39 +264,79 @@ function _ImportDependency(
     function updateRequireImport(data) {
         return data.replace(
             NODE_REQUIRE_PATT
-            , function replaceRequire(match) {
-                return match.replace("require", "$import$");
+            , function replaceRequire(match, prefix, args) {
+                var importType = '"import-require"'
+                ;
+                if (!args) {
+                    args = importType
+                }
+                else {
+                    args+= `${importType},${args}`;
+                }
+
+                return `${prefix || ""}$import$(${args})`;
             }
         );
     }
     /**
     * @function
     */
-    function mockImport(unitItems, mocks, path) {
+    function mockImport(unitItems, mocks, importType, path) {
         try {
-            var name = path.replace(SLSH_PATT, ".")
-            , ref;
-            //if there are mocks then lookup there first
-            if(is_object(mocks)) {
-                ref = utils_reference(
-                    name
-                    , mocks
-                );
+            //remove the ./, it indicates the root which we are at by default
+            if (path.indexOf("./") === 0) {
+                path = path.substring(2);
             }
-            //if not found in the mocks then lookup in the units
-            if(!ref || !ref.found) {
-                ref = utils_reference(
-                    name
-                    , unitItems
+            //turn the slashes into dot for lookup
+            var name = path.replace(SLSH_PATT, ".")
+            , ref
+            , imported
+            ;
+
+            ref = utils_reference(
+                name
+                , mocks
+            );
+            if (!!ref.found) {
+                //if this is from a dynamic import create an object with a default property
+                if (importType === "import-dynamic") {
+                    return  promise.resolve(
+                        {
+                            "default": ref.value
+                        }
+                    );
+                }
+                return promise.resolve(ref.value);
+            }
+
+            ref = utils_reference(
+                name
+                , unitItems
+            );
+            if (!!ref.found) {
+                //convert the data value
+                return ImportDependency(
+                    unitItems
+                    , mocks
+                    , name
+                )
+                .then(
+                    function thenProcessResult(exports) {debugger
+                        if (importType === "import-dynamic") {
+                            return  promise.resolve(
+                                {
+                                    "default": exports
+                                }
+                            );
+                        }
+                        return promise.resolve(exports);
+                    }
                 );
             }
 
-            if(!ref.found) {
-                throw new Error(
-                    `${errors.test.client.import_path_not_found} (${path})`
-                )
-            }
-            return promise.resolve(ref.value);
+            throw new Error(
+                `${errors.test.client.import_path_not_found} (${path})`
+            );
         }
         catch(ex) {
             return promise.resolve(ex);
