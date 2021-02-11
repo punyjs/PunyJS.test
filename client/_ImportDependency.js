@@ -86,10 +86,6 @@ function _ImportDependency(
                     "$module$"
                     , "$import$"
                 ]
-                //add the hide globals array to the list of parameters will re-declare the global variables that we wish to hide
-                .concat(
-                    defaults.test.client.hideGlobals
-                )
                 //add our modified code as the final argument, the func body
                 .concat(
                     dynamicModuleCode
