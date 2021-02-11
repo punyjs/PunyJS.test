@@ -248,6 +248,7 @@ function _InitClient(
                     ? "node"
                     : "browser"
                 , "userAgent": userAgent
+                , "config": config
                 , "clientId": getClientId(
                     config
                 )

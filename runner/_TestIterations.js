@@ -170,6 +170,9 @@ function _TestIterations(
         if (!!config.testId) {
             executeConfig.testId = config.testId;
         }
+        if (!!config.unitReporterLevels) {
+            executeConfig.reporterLevels = config.unitReporterLevels;
+        }
         return testMessageSender(
             clientIds
             , "execute"

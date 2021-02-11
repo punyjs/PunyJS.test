@@ -48,13 +48,16 @@ function _TestRunner(
     */
     function createDependencyCollection(config, clientMeta, unitItems) {
         try {
-            var deps = {
+            var mocks = {}
+            , deps = {
                 "$config": config
                 , "$client": clientMeta
                 , "$import": importDependency.bind(
                     null
                     , unitItems
+                    , mocks
                 )
+                , "$mocks": mocks
                 , "$global": global
                 , "$reporter": reporter
                 , "unit": {}
