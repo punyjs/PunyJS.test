@@ -17,7 +17,7 @@ function _InitClient(
     , reporter
     , defaults
     , constants
-    , info
+    , infos
     , errors
 ) {
     /**
@@ -91,7 +91,7 @@ function _InitClient(
             "open": function open() {
                 config.opened = true;
                 reporter.info(
-                    info.test.client.socket_opened
+                    infos.test.client.socket_opened
                 );
             }
             , "error": function error(error) {
@@ -102,7 +102,7 @@ function _InitClient(
             , "close": function close() {
                 config.opened = false;
                 reporter.info(
-                    info.test.client.socket_closed
+                    infos.test.client.socket_closed
                 );
                 //wait a bit and try to open again
                 waitForConnection(
@@ -205,7 +205,7 @@ function _InitClient(
             ;
             ///LOGGING
             reporter.extended(
-                `${info.test.client.recieved_message} (${msgId} ${instruction})`
+                `${infos.test.client.recieved_message} (${msgId} ${instruction})`
             );
             ///END LOGGING
 

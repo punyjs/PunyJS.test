@@ -15,7 +15,7 @@ function _Runner(
     , reporter
     , defaults
     , constants
-    , info
+    , infos
 ) {
 
     /**
@@ -107,7 +107,7 @@ function _Runner(
     function generateClientList(config) {
         ///LOGGING
         reporter.info(
-            `${info.test.runner.resetting_clients}`
+            `${infos.test.runner.resetting_clients}`
         );
         ///END LOGGING
         //send the RESET message to all clients

@@ -5,7 +5,7 @@
 function _InitTestClients(
     testEntryLoader
     , reporter
-    , info
+    , infos
 ) {
 
 
@@ -45,7 +45,7 @@ function _InitTestClients(
     function loadUnitUnderTest(config, testPackage, clientList) {
         ///LOGGING
         reporter.info(
-            `${info.test.runner.upload_uuit}`
+            `${infos.test.runner.upload_uuit}`
         );
         ///END LOGGING
         //load the unit under test entries
@@ -62,7 +62,7 @@ function _InitTestClients(
     function loadTestSetup(config, testPackage, clientList) {
         ///LOGGING
         reporter.info(
-            `${info.test.runner.upload_test_setup}`
+            `${infos.test.runner.upload_test_setup}`
         );
         ///END LOGGING
         //load the unit under test entries
@@ -79,7 +79,7 @@ function _InitTestClients(
     function loadTests(config, testPackage, clientList) {
         ///LOGGING
         reporter.info(
-            `${info.test.runner.upload_test}`
+            `${infos.test.runner.upload_test}`
         );
         ///END LOGGING
         //if there is a testEntry config property then reduce the test package

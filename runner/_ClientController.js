@@ -15,7 +15,7 @@ function _ClientController(
     , reporter
     , defaults
     , errors
-    , info
+    , infos
 ) {
 
     /**
@@ -149,7 +149,7 @@ function _ClientController(
         }
         ///LOGGING
         reporter.extended(
-            `${info.test.runner.message_received} (${clientId}, ${msgId})`
+            `${infos.test.runner.message_received} (${clientId}, ${msgId})`
         );
         ///END LOGGING
         //get the handle for this message id
@@ -285,7 +285,7 @@ function _ClientController(
             ;
             ///LOGGING
             reporter.extended(
-                `${info.test.runner.message_sent} (${clientId}, ${msgId})`
+                `${infos.test.runner.message_sent} (${clientId}, ${msgId})`
             );
             ///END LOGGING
         }

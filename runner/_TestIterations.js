@@ -10,7 +10,7 @@ function _TestIterations(
     , utils_retrocycleParse
     , is_error
     , reporter
-    , info
+    , infos
     , constants
 ) {
 
@@ -22,7 +22,7 @@ function _TestIterations(
     function TestIterations(config, testPackage, clientList) {
         ///LOGGING
         reporter.info(
-            `${info.test.runner.start_iterations}`
+            `${infos.test.runner.start_iterations}`
         );
         ///END LOGGING
         var currentIteration = 0
@@ -72,7 +72,7 @@ function _TestIterations(
 
         ///LOGGING
         reporter.info(
-            `${info.test.runner.upload_iteration_setup} (${iteration})`
+            `${infos.test.runner.upload_iteration_setup} (${iteration})`
         );
         ///END LOGGING
         return testEntryLoader(
@@ -85,7 +85,7 @@ function _TestIterations(
         .then(function thenUploadIterationTests() {
             ///LOGGING
             reporter.info(
-                `${info.test.runner.upload_iteration_tests} (${iteration})`
+                `${infos.test.runner.upload_iteration_tests} (${iteration})`
             );
             ///END LOGGING
             return testEntryLoader(
@@ -110,7 +110,7 @@ function _TestIterations(
             testResults = results;
             ///LOGGING
             reporter.info(
-                `${info.test.runner.cleanup_iteration} (${iteration})`
+                `${infos.test.runner.cleanup_iteration} (${iteration})`
             );
             //END LOGGING
             return cleanupTest(
@@ -154,7 +154,7 @@ function _TestIterations(
     function runTests(config, testPackage, clientList, iteration) {
         ///LOGGING
         reporter.info(
-            `${info.test.runner.execute_test}`
+            `${infos.test.runner.execute_test}`
         );
         ///END LOGGING
         //load the unit under test entries

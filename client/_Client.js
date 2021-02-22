@@ -8,7 +8,7 @@ function _Client(
     , reporter
     , errors
     , defaults
-    , info
+    , infos
 ) {
     /**
     * A categorized collection of test items, units under test, setup factories and test factories
@@ -58,7 +58,7 @@ function _Client(
             }
             ///LOGGING
             reporter.extended(
-                `${info.test.client.adding_entry} (${entry.type} ${entry.id})`
+                `${infos.test.client.adding_entry} (${entry.type} ${entry.id})`
             );
             ///END LOGGING
 
@@ -77,7 +77,7 @@ function _Client(
         try {
             ///LOGGING
             reporter.extended(
-                `${info.test.client.removing_entry} (${id})`
+                `${infos.test.client.removing_entry} (${id})`
             );
             ///END LOGGING
             if (testItems.setup.hasOwnProperty(id)) {
@@ -102,7 +102,7 @@ function _Client(
     function execute(config, clientMeta) {
         ///LOGGING
         reporter.info(
-            `${info.test.client.executing_tests}`
+            `${infos.test.client.executing_tests}`
         );
         ///END LOGGING
         return testRunner(
@@ -125,7 +125,7 @@ function _Client(
     function reset() {
         ///LOGGING
         reporter.info(
-            `${info.test.client.resetting_client}`
+            `${infos.test.client.resetting_client}`
         );
         ///END LOGGING
         //rebuild the testItems collection

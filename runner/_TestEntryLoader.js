@@ -8,7 +8,7 @@ function _TestEntryLoader(
     , testMessageSender
     , is_error
     , reporter
-    , info
+    , infos
     , constants
 ) {
 
@@ -35,7 +35,7 @@ function _TestEntryLoader(
             var len = entries.length;
             ///LOGGING
             reporter.extended(
-                `${info.test.runner.sending_entries} (${action} ${entryType} ${len})`
+                `${infos.test.runner.sending_entries} (${action} ${entryType} ${len})`
             );
             ///END LOGGING
             if (len !== 0) {
@@ -101,7 +101,7 @@ function _TestEntryLoader(
                     }
                     ///LOGGING
                     reporter.extended(
-                        `${info.test.runner.sending_entry} (${action} ${entryType} ${index + 1} of ${len})`
+                        `${infos.test.runner.sending_entry} (${action} ${entryType} ${index + 1} of ${len})`
                     );
                     ///END LOGGING
                     return testMessageSender(

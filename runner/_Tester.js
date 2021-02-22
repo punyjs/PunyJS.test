@@ -26,7 +26,7 @@ function _Tester(
     , testIterations
     , is_empty
     , reporter
-    , info
+    , infos
 ) {
 
     return Tester;
@@ -40,7 +40,7 @@ function _Tester(
         if (is_empty(clientList)) {
             ///LOGGING
             reporter.info(
-                info.test.runner.no_clients
+                infos.test.runner.no_clients
             );
             ///END LOGGING
             return promise.resolve();
@@ -64,7 +64,7 @@ function _Tester(
             testResults = results;
             ///LOGGING
             reporter.info(
-                `${info.test.runner.cleanup_test}`
+                `${infos.test.runner.cleanup_test}`
             );
             //END LOGGING
             return cleanupTest(

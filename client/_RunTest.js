@@ -16,7 +16,7 @@ function _RunTest(
     , globalRedeclarationList
     , reporter
     , errors
-    , info
+    , infos
 ) {
     /**
     * A regular expression pattern to replace underscores
@@ -266,7 +266,7 @@ function _RunTest(
         try {
             ///LOGGING
             reporter.extended(
-                `${info.test.client.executing_test_stage} (${testStageName})`
+                `${infos.test.client.executing_test_stage} (${testStageName})`
             );
             ///END LOGGING
             //create a dependency object using the test deps as the proto

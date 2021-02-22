@@ -21,8 +21,8 @@
         , ":PunyJS.core.data.convert.Errors"
         , {"conflictResolution": "error"}
     ]
-    , "info": [
-        ":PunyJS.test.runner.Info"
+    , "infos": [
+        ":PunyJS.test.runner.Infos"
         , {"conflictResolution": "error"}
     ]
     , "workspacePath": ["+process.cwd()"]

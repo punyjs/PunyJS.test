@@ -16,8 +16,8 @@
         , ":PunyJS.core.data.Errors"
         , {"conflictResolution": "error"}
     ]
-    , "info": [
-        ":PunyJS.test.client.Info"
+    , "infos": [
+        ":PunyJS.test.client.Infos"
         , {"conflictResolution": "error"}
     ]
     , "constants": [
