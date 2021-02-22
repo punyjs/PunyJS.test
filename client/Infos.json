@@ -1,0 +1,14 @@
+{
+    "test": {
+        "client": {
+            "socket_closed": "The client web socket has been closed."
+            , "socket_opened": "The client web socket has been opened."
+            , "adding_entry": "Adding an entry."
+            , "removing_entry": "Removing entry."
+            , "resetting_client": "Resetting the client."
+            , "executing_tests": "Executing the tests."
+            , "recieved_message": "A message has been received."
+            , "executing_test_stage": "Executing test stage"
+        }
+    }
+}

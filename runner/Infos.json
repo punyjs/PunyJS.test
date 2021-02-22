@@ -1,0 +1,22 @@
+{
+    "test": {
+        "runner": {
+            "message_sent": "A message has been sent to the test client."
+            , "message_received": "A message has been received from the test client."
+            , "no_clients": "There aren't any clients registered, nothing to run the tests."
+            , "resetting_clients": "Resetting all of the clients."
+            , "upload_uuit": "Uploading the unit under test entries."
+            , "upload_test_setup": "Uploading the test setup entries."
+            , "upload_test": "Uploading the test entries."
+            , "start_iterations": "Starting the iterations."
+            , "upload_iteration_setup": "Uploading the setup entries for this iteration."
+            , "upload_iteration_tests": "Uploading the test entries for this iteration."
+            , "execute_test": "Executing the tests."
+            , "sending_entries": "Sending entries."
+            , "sending_entry": "Sending entry."
+            , "sending_entries": "Sending entries."
+            , "cleanup_iteration": "Cleaning up the iteration."
+            , "cleanup_test": "Cleaning up the test."
+        }
+    }
+}
