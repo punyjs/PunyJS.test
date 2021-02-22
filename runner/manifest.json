@@ -28,7 +28,8 @@
     , "appType": "ioc.${iocType}"
 
     , "base": [
-        "{PunyJS.core.net.http}/dtree.json"
+        "{PunyJS.core.event}/dtree.json"
+        , "{PunyJS.core.net.http}/dtree.json"
         , "{PunyJS.core.net.http}/node.dtree.json"
         , "{PunyJS.core.encoding}/dtree.json"
         , "{PunyJS.core.encoding}/node.dtree.json"

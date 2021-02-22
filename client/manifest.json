@@ -19,6 +19,11 @@
     , "appType": "ioc.${iocType}"
     , "iocNamePrefix": "ioc-controller"
 
+    , "base": [
+        "{PunyJS.core.data}/uuid.dtree.json"
+        , "{PunyJS.core.event}/dtree.json"
+    ]
+
     , "entries": [
         "{PunyJS.ioc}/manifests/base.manifest.json"
         , "{PunyJS.test.client}/browser/browser.manifest.json"
