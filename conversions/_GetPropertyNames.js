@@ -8,7 +8,7 @@ function _GetPropertyNames(
 ) {
 
 
-    return GetPropertyValue;
+    return GetPropertyNames;
 
     /**
     * @worker
