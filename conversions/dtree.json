@@ -8,6 +8,7 @@
             , "getCallbackResponse": [":PunyJS.test.conversions._GetCallbackResponse",[]]
             , "getKeys": [":PunyJS.test.conversions._GetKeys",[]]
             , "getStyle": [":PunyJS.test.conversions._GetStyle",[]]
+            , "getPropertyNames": [":PunyJS.test.conversions._GetPropertyNames",[]]
             , "getPropertyValue": [":PunyJS.test.conversions._GetPropertyValue",[]]
             , "hasAttribute": [":PunyJS.test.conversions._HasAttribute",[]]
             , "hasStyle": [":PunyJS.test.conversions._HasStyle",[]]
