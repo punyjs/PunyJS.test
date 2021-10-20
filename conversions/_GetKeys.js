@@ -9,7 +9,7 @@ function _GetKeys(
 
 
     return GetKeys;
-    
+
     /**
     * @worker
     * @type {converter}
@@ -18,7 +18,7 @@ function _GetKeys(
     */
     function GetKeys(value) {
         return typeof value === "object"
-            && Object.keys(value)
+            && [Object.keys(value)]
             || [
                 null
                 , `${errors.test.client.conversions.not_object} GetKeys`
