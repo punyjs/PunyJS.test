@@ -9,6 +9,7 @@ function _TestRunner(
     , runSetup
     , test_mocks
     , is_error
+    , is_promise
     , reporter
     , defaults
 ) {
@@ -87,7 +88,8 @@ function _TestRunner(
                 testDependencies
             )
             , environment = testDependencies.$client.environment
-            , setupProcs = [];
+            , setupProc = promise.resolve()
+            ;
 
             Object.keys(setupEntries)
             //sort the keys based on the entry index value, if exists
@@ -110,24 +112,44 @@ function _TestRunner(
             //loop through the keys and execute each factory
             .forEach(function forEachEntry(key) {
                 var entry = setupEntries[key];
-                setupProcs.push(
-                    runSetup(
-                        entry
-                        , setupDeps
-                    )
+                //then check to see if we need to wait for a resulting promise to resolve
+                setupProc = setupProc
+                .then(
+                    function thenWaitForResultPromise(lastResult) {
+                        if (is_promise(lastResult)) {
+                            return lastResult;
+                        }
+                        return promise.resolve(lastResult);
+                    }
+                )
+                //then run the next setup
+                .then(
+                    function thenRunNextSetup(lastResult) {
+                        if (is_error(lastResult)) {
+                            return promise.reject(lastResult);
+                        }
+                        return runSetup(
+                            entry
+                            , setupDeps
+                        );
+                    }
                 );
             });
-
             //wait for all of the setup promises to resolve
-            return promise.all(
-                setupProcs
-            )
-            //then check to see if any setup entries failed
-            .then(function thenCheckSetupResults(results) {
-                for(let result in results) {
-                    if (is_error(result)) {
-                        return promise.reject(result);
+            return setupProc
+            //then check to see if we need to wait for a resulting promise to resolve
+            .then(
+                function thenWaitForResultPromise(lastResult) {
+                    if (is_promise(lastResult)) {
+                        return lastResult;
                     }
+                    return promise.resolve(lastResult);
+                }
+            )
+            //then resolve the dependencies added by the setup
+            .then(function thenResolveSetupDeps(lastResult) {
+                if (is_error(lastResult)) {
+                    return promise.reject(lastResult);
                 }
                 //resolve the resulting dependencies
                 return promise.resolve(setupDeps);
