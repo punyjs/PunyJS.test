@@ -121,7 +121,6 @@ function _TestIterations(
             );
         })
         .then(function thenReturnResults() {
-            //console.log(testResults)
             return promise.resolve(testResults);
         });
     }
