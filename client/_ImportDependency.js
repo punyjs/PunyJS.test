@@ -267,7 +267,7 @@ function _ImportDependency(
                     args = importType
                 }
                 else {
-                    args+= `${importType},${args}`;
+                    args = `${importType},${args}`;
                 }
 
                 return `${prefix || ""}$import$(${args})`;
@@ -317,7 +317,7 @@ function _ImportDependency(
                     , name
                 )
                 .then(
-                    function thenProcessResult(exports) {debugger
+                    function thenProcessResult(exports) {
                         if (importType === "import-dynamic") {
                             return  promise.resolve(
                                 {
