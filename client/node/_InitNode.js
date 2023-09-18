@@ -11,7 +11,7 @@ function _InitNode(
     */
     return function InitNode(cmdArgs) {
         try {
-            var args = cmdArgs.arguments;
+            var args = cmdArgs.options;
             args.environment = "node";
             return initClient(
                 args

@@ -89,7 +89,7 @@ function _RunnerInit(
         try {
             //create the configuration with the cmdArgs
             var config = utils_copy(
-                cmdArgs.arguments
+                cmdArgs.options
             );
             ///INPUT VALIDATION
             //we must have a test namespace
