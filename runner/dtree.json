@@ -35,6 +35,11 @@
         , "process": ["+require('process')"]
         , "crypto": ["+require('crypto')"]
         , "buffer": ["+Buffer"]
+        , "util": ["+require('util')"]
+        , "inspect": [
+            ".node.util"
+            , ".inspect"
+        ]
     }]
     , "browser":[{
         "webSocket": null

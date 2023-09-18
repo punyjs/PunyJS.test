@@ -5,6 +5,7 @@
 function _ConsoleRecorder(
     promise
     , is_empty
+    , node_inspect
 ) {
 
     return ConsoleRecorder;
@@ -179,7 +180,9 @@ function _ConsoleRecorder(
     function processAssertion(config, assertion) {
         if (config.verbosity > 4 || assertion.passed === false) {
             console.log("Title: ", assertion.title);
-            console.log("Results: ", assertion.results);
+            console.log("Results: ");
+            console.log(node_inspect)
+            console.log("Results: ", node_inspect(assertion.results, {colors: true, depth: 1000,  maxArrayLength: 10000, maxStringLength: 1000000}))
         }
     }
     /**
