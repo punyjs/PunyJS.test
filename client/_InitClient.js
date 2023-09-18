@@ -40,13 +40,13 @@ function _InitClient(
             //initialize the config
             var config = initializeConfig(
                 args
-            );
+            )
             //open the web socket
-            openWebSocket(
+            , conn = openWebSocket(
                 config
             );
 
-            return promise.resolve();
+            return promise.resolve(conn);
         }
         catch(ex) {
             return promise.reject(ex);
@@ -90,6 +90,7 @@ function _InitClient(
         config.listeners = {
             "open": function open() {
                 config.opened = true;
+                config.stopped = false;
                 reporter.info(
                     infos.test.client.socket_opened
                 );
@@ -100,6 +101,9 @@ function _InitClient(
                 );
             }
             , "close": function close() {
+                if (config.stopped === true) {
+                    return;
+                }
                 config.opened = false;
                 reporter.info(
                     infos.test.client.socket_closed
@@ -124,6 +128,8 @@ function _InitClient(
             "message"
             , handleMessage.bind(null, conn, config)
         );
+
+        return conn;
     }
     /**
     * @function
