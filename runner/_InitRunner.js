@@ -11,7 +11,7 @@ function _RunnerInit(
     , node_fs
     , node_dirName
     , node_process
-    , net_http_webSocket
+    , net_http_websocket_webSocket
     , workspacePath
     , utils_copy
     , utils_applyIf
@@ -263,7 +263,7 @@ function _RunnerInit(
     function createWebSocketServer(config, key, cert) {
         try {
             //create the server and wire it to the client registry
-            webSocketServer = net_http_webSocket({
+            webSocketServer = net_http_websocket_webSocket({
                 "cert": cert
                 , "key": key
                 , "port": config.port

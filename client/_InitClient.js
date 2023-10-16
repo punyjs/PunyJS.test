@@ -5,7 +5,7 @@ function _InitClient(
     promise
     , setTimeout
     , node_process
-    , net_http_webSocket
+    , net_http_websocket_webSocket
     , net_http_userAgent
     , client
     , utils_applyIf
@@ -23,7 +23,7 @@ function _InitClient(
     /**
     * @alias
     */
-    var webSocket = net_http_webSocket
+    var webSocket = net_http_websocket_webSocket
     /**
     * @alias
     */
