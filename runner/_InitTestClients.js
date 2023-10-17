@@ -84,7 +84,7 @@ function _InitTestClients(
         );
         ///END LOGGING
         //if there is a testEntry config property then reduce the test package
-        if (is_string(config.testEntry)) {
+        if (!!config.testEntry) {
             testPackage = testPackage.filter(
                 function filterTestPackage(entry) {
                     if (entry.type === "test") {
