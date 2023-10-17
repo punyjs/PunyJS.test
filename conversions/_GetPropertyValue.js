@@ -19,7 +19,9 @@ function _GetPropertyValue(
     */
     function GetPropertyValue(value, name) {
         return typeof value === "object"
-            && value[name]
+            && [
+                value[name]
+            ]
             || [
                 null
                 , `${errors.test.client.conversions.not_object} GetKeys`
