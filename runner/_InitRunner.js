@@ -16,6 +16,7 @@ function _RunnerInit(
     , utils_copy
     , utils_applyIf
     , is_string
+    , is_array
     , fs_fileLoader
     , reporter
     , defaults
@@ -120,12 +121,12 @@ function _RunnerInit(
                 ;
             }
             //parse the testEntry config
-            if (config.testEntry) {
-                if (is_string(config.testEntry)) {
-                    config.testEntry = config.testEntry.split(",")
-                }
+            if (is_string(config.testEntry)) {
+                config.testEntry = config.testEntry.split(",")
             }
-
+            if (!is_array(config.testEntry)) {
+                config.testEntry = [];
+            }
             //add any defaults
             utils_applyIf(
                 defaults.test.runner
