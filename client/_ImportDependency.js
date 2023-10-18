@@ -261,7 +261,7 @@ function _ImportDependency(
         return data.replace(
             NODE_REQUIRE_PATT
             , function replaceRequire(match, prefix, args) {
-                var importType = '"import-require"'
+                var importType = `'import-require'`
                 ;
                 if (!args) {
                     args = importType
