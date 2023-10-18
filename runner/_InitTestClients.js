@@ -4,7 +4,7 @@
 */
 function _InitTestClients(
     testEntryLoader
-    , is_string
+    , is_empty
     , reporter
     , infos
 ) {
@@ -84,7 +84,7 @@ function _InitTestClients(
         );
         ///END LOGGING
         //if there is a testEntry config property then reduce the test package
-        if (!!config.testEntry) {
+        if (!is_empty(config.testEntry)) {
             testPackage = testPackage.filter(
                 function filterTestPackage(entry) {
                     if (entry.type === "test") {
