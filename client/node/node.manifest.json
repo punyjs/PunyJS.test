@@ -22,12 +22,9 @@
                 , "{PunyJS.test.assertions}/dtree.json"
                 , "{PunyJS.test.conversions}/dtree.json"
                 , "{PunyJS.test.mocks}/dtree.json"
-                , "{PunyJS.core.net.http}/dtree.json"
-                , "{PunyJS.core.net.http}/node.dtree.json"
-                , "{PunyJS.core.encoding}/dtree.json"
-                , "{PunyJS.core.encoding}/node.dtree.json"
-                , "{PunyJS.core.security}/dtree.json"
-                , "{PunyJS.core.security}/node.dtree.json"
+                , "{PunyJS.core}/net/http/websocket/node.dtree.json"
+                , "{PunyJS.core}/encoding/node.dtree.json"
+                , "{PunyJS.core}/security/node.dtree.json"
             ]
             , "dtree": "{PunyJS.test.client}/node/node.dtree.json"
             , "config": {

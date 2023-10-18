@@ -28,13 +28,10 @@
     , "appType": "ioc.${iocType}"
 
     , "base": [
-        "{PunyJS.core.event}/dtree.json"
-        , "{PunyJS.core.net.http}/dtree.json"
-        , "{PunyJS.core.net.http}/node.dtree.json"
-        , "{PunyJS.core.encoding}/dtree.json"
-        , "{PunyJS.core.encoding}/node.dtree.json"
-        , "{PunyJS.core.security}/dtree.json"
-        , "{PunyJS.core.security}/node.dtree.json"
+        "{PunyJS.core}/event/dtree.json"
+        , "{PunyJS.core}/net/http/websocket/node.dtree.json"
+        , "{PunyJS.core}/encoding/node.dtree.json"
+        , "{PunyJS.core}/security/node.dtree.json"
     ]
 
     , "entries": [
