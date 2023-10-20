@@ -121,6 +121,9 @@ function _ClientController(
     function deregisterClient(id) {
         var client = clients[id];
         delete clients[id];
+        if (!client) {
+            return;
+        }
         //resolve any handles
         Object.keys(client.handles)
         .forEach(function forEachHandle(id) {

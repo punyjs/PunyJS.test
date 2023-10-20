@@ -274,11 +274,11 @@ function _RunnerInit(
                             socketApi
                         );
                     }
-                    , "serverError": function serverError(error, serverApi) {
+                    , "serverError": function serverError(error) {
                         ///TODO: what do we do on a server error, what kind of errors could we see and should we close the process
                         console.log(`server error: ${error}`)
                     }
-                    , "serverClose": function serverClose(serverApi) {
+                    , "serverClose": function serverClose() {
                         ///TODO: do we clean up resources here or is the closing always server initialted.
                         console.log("server close");
                     }
